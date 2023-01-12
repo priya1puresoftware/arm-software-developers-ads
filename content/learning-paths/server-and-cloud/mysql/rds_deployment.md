@@ -78,8 +78,8 @@ variable "secret_key"{
 
 
 ```
-**NOTE:** Replace `secret_key` and `access_key` with orignal AWS credentials.
-Now, use below Terraform commands to deploy `main.tf` file.
+**NOTE:** Replace `secret_key` and `access_key` with original AWS credentials.
+Now, use the below Terraform commands to deploy `main.tf` file.
 
 ## Terraform commands
     
@@ -105,7 +105,7 @@ terraform plan
 
 ### Apply a Terraform execution plan
 
-Run `terraform apply` to apply the execution plan to your cloud infrastructure. Below command creates all required infrastructure.
+Run `terraform apply` to apply the execution plan to your cloud infrastructure. The below command creates all required infrastructure.
 
 ```console
 terraform apply
