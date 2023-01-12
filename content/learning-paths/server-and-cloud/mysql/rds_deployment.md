@@ -15,8 +15,8 @@ layout: "learningpathall"
 * [Terraform](https://github.com/zachlas/arm-software-developers-ads/blob/main/content/install-tools/terraform.md)
 
 ## Deploy MySQL RDS instances
-RDS is the Relational database service provided by AWS. More information can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html).
-To deploy RDS instance of MySQL, we need to create `main.tf` terraform file.
+
+RDS is a Relational database service provided by AWS. More information can be found [here]((https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html).) To deploy a MySQL RDS instance, we need to create a `main.tf` Terraform file
 
 ### Here is the complete main.tf file
     
@@ -52,8 +52,7 @@ resource "aws_db_instance" "Testing_Mysql" {
 
 ``` 
 
-To find the correct instance type for RDS, [here](https://aws.amazon.com/rds/mysql/instance-types/) is the list of the instance type. Use the instance type according to your requirements.
-
+To find the correct instance type for RDS, Check the [list](https://aws.amazon.com/rds/mysql/instance-types/) of supported instance types. We selected a Graviton (Arm) based instance type.
 
 ![Screenshot (260)](https://user-images.githubusercontent.com/92315883/209249327-3755d7ef-581b-456c-a64b-e2167080dd59.png)
 We also need to create `credentail.tf` file, for passing our secret keys and password.
@@ -86,7 +85,7 @@ Now, use below Terraform commands to deploy `main.tf` file.
     
 ### Initialize Terraform
 
-Run `terraform init` to initialize the Terraform deployment. This command is responsible for downloading all dependencies which are required for the provider AWS.
+Run `terraform init` to initialize the Terraform deployment. This command is responsible for downloading all dependencies which are required for the AWS provider.
 
 
 ```console
@@ -115,18 +114,16 @@ terraform apply
 ![Screenshot (256)](https://user-images.githubusercontent.com/92315883/209247083-91a719df-8707-4380-9637-d1238cacf8b3.png)
    
 ### Verify the RDS setup
-
-Verify the setup by going back to the AWS console. Goto **RDS >> Databases** you should see the instance running.   
    
+Verify the setup by going back to the AWS console. Go to **RDS » Databases**, you should see the instance running.  
 
 ![Screenshot (257)](https://user-images.githubusercontent.com/92315883/209247626-2df854ca-a781-46b0-aeba-076a23b0c1fb.png)
 
 ## Connect to RDS using EC2 instance
 
-To access the RDS, we need to make sure that our instance is correctly associated with security group and VPC. To access RDS outside the VPC, Follow this [document](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.Connect.html).
+To access the RDS instance, we need to make sure that our instance is correctly associated with a security group and VPC. To access RDS outside the VPC, Follow this [document](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.Connect.html).
 
-To connect to RDS, we need the `Endpoint` of RDS instance, to check the Endpoint.
-Goto **RDS >>Dashboard >>{{YOUR_RDS_INSTANCE}}**.
+To connect to the RDS instance, we need the `Endpoint` of the RDS instance. To find the Endpoint, Go to **RDS »Dashboard » {{YOUR_RDS_INSTANCE}}**.
 
 ![Screenshot (280)](https://user-images.githubusercontent.com/92315883/209741254-55b40b52-1c56-482a-ab48-e33f510a1cf6.png)
 
@@ -145,10 +142,9 @@ Create `arm_test` database as shown below.
 
 ![Screenshot (278)](https://user-images.githubusercontent.com/92315883/209741488-8e4cc2f6-e3d0-4730-8321-db2a21cc27c2.png)
 
-Create a table and insert values by using script file [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10311465/table_dot_sql.txt).
+Create a table and insert values by using the script file [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10311465/table_dot_sql.txt).
 
-**NOTE:** Make sure `table.sql` file should be present in same directory where `main.tf` and `credential.tf` are.
+**NOTE:** Make sure the `table.sql` file should be present in the same directory where `main.tf` and `credential.tf` are.
 
 ![Screenshot (279)](https://user-images.githubusercontent.com/92315883/209741539-9cc80fae-7fb1-4eae-b1c2-17235e48630d.png)
-
 
