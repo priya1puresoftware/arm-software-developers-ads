@@ -17,7 +17,7 @@ layout: "learningpathall"
 
 ## Deploy MySQL via Docker
 Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
-To deploy MySQL container, we have to create `main.tf` terraform file.
+To deploy the MySQL container, we have to create a `main.tf` terraform file.
 
 
 ### Here is the main.tf file.
@@ -52,15 +52,15 @@ resource "docker_container" "mysql" {
 ```
 **NOTE:**- Replace `{{your_mysql_password}}` with your own MySQL password.
 
-Use below Terraform commands to deploy `main.tf` file.
+Use below Terraform commands to deploy the `main.tf` file.
 
-**NOTE:**- We run this Terraform file directly on the host where we want to deploy MySQL on.
+**NOTE:**- We are running this terraform file directly on the host(where we want to deploy MySQL).
 
 ## Terraform Commands
 
 ### Initialize Terraform
 
-Run `terraform init` to initialize the Terraform deployment. This command is responsible for downloading all the dependencies which are required for the provider AWS.
+Run `terraform init` to initialize the Terraform deployment. This command is responsible for downloading all the dependencies which are required for the AWS provider.
 
 ```console
 terraform init
@@ -91,15 +91,16 @@ terraform apply
 
 ## Check the deployment of MySQL container
 
-After applying Terraform file with `terraform apply` command, a docker container is created. To verify the creation of a container.
+After applying the Terraform file with the `terraform apply` command, a MySQL container will be created. To verify the creation of a container.
 
 ### Check container deplyoment
-Use `docker ps` command to check the creation of container.
+Use the `docker ps` command to check the creation of the container.
 
 ![Screenshot 2022-12-22 131700](https://user-images.githubusercontent.com/92315883/209083915-cf7100d1-d26a-4aad-8239-d3e75cd01c62.png)
 
 ### Access the docker container
-To connect to MySQL container we need to use MySQL Client to interact.
+To connect to the MySQL container, we need to use the MySQL client to interact with the database.
+
 ```console
 apt install mysql-client
 ```
