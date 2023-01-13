@@ -54,6 +54,8 @@ resource "docker_container" "mysql" {
 
 Use below Terraform commands to deploy `main.tf` file.
 
+**NOTE:**- We run this Terraform file directly on the host where we want to deploy MySQL on.
+
 ## Terraform Commands
 
 ### Initialize Terraform
