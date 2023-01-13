@@ -55,7 +55,7 @@ resource "aws_db_instance" "Testing_Mysql" {
 To find the correct instance type for RDS, Check the [list](https://aws.amazon.com/rds/mysql/instance-types/) of supported instance types. We selected a Graviton (Arm) based instance type.
 
 ![Screenshot (260)](https://user-images.githubusercontent.com/92315883/209249327-3755d7ef-581b-456c-a64b-e2167080dd59.png)
-We also need to create `credentail.tf` file, for passing our secret keys and password.
+We also need to create a `credentail.tf` file, for passing our secret keys and password.
 
 ### Here is credential.tf file for credentials
 
@@ -78,8 +78,8 @@ variable "secret_key"{
 
 
 ```
-**NOTE:** Replace `secret_key` and `access_key` with original AWS credentials.
-Now, use the below Terraform commands to deploy `main.tf` file.
+**NOTE:** Replace `secret_key` and `access_key` with the original AWS credentials.
+Now, use the below Terraform commands to deploy the `main.tf` file.
 
 ## Terraform commands
     
@@ -127,7 +127,7 @@ To connect to the RDS instance, we need the `Endpoint` of the RDS instance. To f
 
 ![Screenshot (280)](https://user-images.githubusercontent.com/92315883/209741254-55b40b52-1c56-482a-ab48-e33f510a1cf6.png)
 
-Now, we can connect to RDS using the above Endpoint. And we also have to use the `user` and `password` mentioned in `credential.tf` file.
+Now, we can connect to RDS using the above Endpoint. And we also have to use the `user` and `password` mentioned in the `credential.tf` file.
 
 ```console
 mysql -h {{Endpoint}} -u {{user}} -p {{password}}
