@@ -224,20 +224,7 @@ Playbook contains a collection of tasks.
 ```
 **NOTE:-** We are using [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10311465/table_dot_sql.txt) script file to dump data, specify the `path` of file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
 
-### Create inventory file.
-
-We also need the **inventory.txt** file. The Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate.
-
-#### Here is the inventory.txt file
-
-```console
-[all]
-ansible-target1 ansible_host={{Use public-ip of instance}}  ansible_connection=ssh ansible_user={{Enter user}}
-```
-**NOTE:-** Use public-ip of instance(where you want to config MySQL) as `ansible_host` and user as `ansible_user`. 
-
 In our case, the inventory file will generate automatically. This file is formed after the `terraform apply` command. 
-
 
 ### Ansible Commands
 To run a Playbook, we need to use the `ansible-playbook` command.
@@ -255,22 +242,37 @@ Here is the output after the successful execution of the `ansible-playbook` comm
 
 ## Connect to Database using EC2 instance
 
-To connect to the database, we need the `public-ip` of deployed instance. We also need to use MySQL Client to interact.
+To connect to the database, we need the `public-ip` of the instance where MySQL is deployed. We also need to use MySQL Client to interact with the MySQL database.
 
 ```console
 apt install mysql-client
 ```
 
 ```console
-mysql -h {public_ip of deployed instance} -P3306 -u {user of database} -p {password of database}
+mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of database} -p {password of database}
 ```
 
-**NOTE:-** Replace `{public_ip of deployed instance}`, `{user_name of database}` and `{password of database}` with sutiable values.
+**NOTE:-** Replace `{public_ip of instance where Mysql deployed}`, `{user_name of database}` and `{password of database}` with suitable values. In our case `user_name`= `Local_user`, which we have created through `.yml` file. 
 
-![Screenshot (292)](https://user-images.githubusercontent.com/92315883/212025285-c5e273e0-3379-4172-86ce-f39f05d1f84c.png)
+![Screenshot (297)](https://user-images.githubusercontent.com/92315883/212297155-e6983e10-ffb2-4a31-b2ec-ec626a2bda3b.png)
+
 
 ### Access Database and Table
 
-We can access our databases and table.
+We can access our database by using the below command.
 
-![Screenshot (290)](https://user-images.githubusercontent.com/92315883/212025420-586e7c72-a411-4159-96b1-9e03c844931c.png)
+```console
+show databases;
+```
+![Screenshot (298)](https://user-images.githubusercontent.com/92315883/212295902-82b05825-a073-4d45-8273-6696dad7e9d8.png)
+
+Tables can be accessed by using the below command.
+
+```console
+use {{your_database}};
+```
+```console
+show tables;
+```
+
+![Screenshot (296)](https://user-images.githubusercontent.com/92315883/212296160-127d4b9e-47f2-4710-9498-9610e5a69c45.png)
