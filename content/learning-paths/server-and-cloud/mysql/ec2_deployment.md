@@ -222,7 +222,7 @@ Playbook contains a collection of tasks.
         name: mysql
         state: restarted
 ```
-**NOTE:-** We are using [table.sql]((https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10433773/table_dot_sql.txt)) script file to dump data, specify the `path` of the file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
+**NOTE:-** We are using [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10433773/table_dot_sql.txt) script file to dump data, specify the `path` of the file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
 
 In our case, the inventory file will generate automatically. This file is formed after the `terraform apply` command. 
 
