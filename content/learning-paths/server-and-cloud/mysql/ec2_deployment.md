@@ -95,7 +95,7 @@ resource "aws_key_pair" "deployer" {
         public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUZXm6T6JTQBuxw7aFaH6gmxDnjSOnHbrI59nf+YCHPqIHMlGaxWw0/xlaJiJynjOt67Zjeu1wNPifh2tzdN3UUD7eUFSGcLQaCFBDorDzfZpz4wLDguRuOngnXw+2Z3Iihy2rCH+5CIP2nCBZ+LuZuZ0oUd9rbGy6pb2gLmF89GYzs2RGG+bFaRR/3n3zR5ehgCYzJjFGzI8HrvyBlFFDgLqvI2KwcHwU2iHjjhAt54XzJ1oqevRGBiET/8RVsLNu+6UCHW6HE9r+T5yQZH50nYkSl/QKlxBj0tGHXAahhOBpk0ukwUlfbGcK6SVXmqtZaOuMNlNvssbocdg1KwOH ubuntu@ip-172-31-27-185"
  }
 ```
-**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with original values. Also, replace `private_key` with correct path.
+**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with original values.
 
 Now, use the below Terraform commands to deploy the `main.tf` file.
 
@@ -222,7 +222,7 @@ Playbook contains a collection of tasks.
         name: mysql
         state: restarted
 ```
-**NOTE:-** We are using [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10311465/table_dot_sql.txt) script file to dump data, specify the `path` of the file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
+**NOTE:-** We are using [table.sql](https://github.com/hirnimeshrampuresoftware/arm-software-developers-ads/files/10433744/table_dot_sql.txt) script file to dump data, specify the `path` of the file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
 
 In our case, the inventory file will generate automatically. This file is formed after the `terraform apply` command. 
 
