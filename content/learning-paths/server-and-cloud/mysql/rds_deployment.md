@@ -127,6 +127,7 @@ To connect to the RDS instance, we need the `Endpoint` of the RDS instance. To f
 
 ![Screenshot (280)](https://user-images.githubusercontent.com/92315883/209741254-55b40b52-1c56-482a-ab48-e33f510a1cf6.png)
 
+
 Now, we can connect to RDS using the above Endpoint. And we also have to use the `user` and `password` mentioned in the `credential.tf` file.
 
 ```console
