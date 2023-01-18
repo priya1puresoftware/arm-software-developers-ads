@@ -49,8 +49,9 @@ ssh-keygen -t rsa -b 2048
 By default, the above command will generate the public as well as private key at location **$HOME/.ssh**. You can override the end destination with a custom path.
 
 Output when a key pair is generated:
-      
-![Screenshot (239)](https://user-images.githubusercontent.com/92315883/209257521-2b5e7019-1f4c-4701-a673-9d005b929893.png)
+
+![Screenshot (319)](https://user-images.githubusercontent.com/92315883/213113265-620eee1b-319d-4318-acfa-fae9a802471d.png)
+
       
 **Note:** Use the public key mysql_key.pub inside the Terraform file to provision/start the instance and private key mysql_key to connect to the instance.
 
@@ -142,9 +143,8 @@ Run `terraform init` to initialize the Terraform deployment. This command is res
 ```console
 terraform init
 ```
-    
-![Screenshot (255)](https://user-images.githubusercontent.com/92315883/209255228-8c8b1b17-ce55-4c7d-9916-6c15918fc82e.png)
 
+![Screenshot (320)](https://user-images.githubusercontent.com/92315883/213113408-91133eef-645c-44ed-9136-f48cce40e220.png)
 
 #### Create a Terraform execution plan
 
@@ -163,8 +163,7 @@ Run `terraform apply` to apply the execution plan to your cloud infrastructure. 
 ```console
 terraform apply
 ```      
-![Screenshot (264)](https://user-images.githubusercontent.com/92315883/209255731-6397eef8-d676-4053-941f-7bfe87e4972f.png)
-
+![Screenshot (322)](https://user-images.githubusercontent.com/92315883/213113585-2f406ed0-3fc7-475b-ab6a-c988ca734349.png)
 
 
 ## Configure MySQL through Ansible
@@ -252,11 +251,11 @@ ansible-playbook {your_yml_file} -i {your_inventory_file} --key-file {path_to_pr
 ```
 **NOTE:-** Replace `{your_yml_file}`, `{your_inventory_file}` and `{path_to_private_key}` with orignal values.
 
-![Screenshot (294)](https://user-images.githubusercontent.com/92315883/212034125-6f83ea1a-7a55-41b5-af66-a4677a4cdb0a.png)
+![Screenshot (321)](https://user-images.githubusercontent.com/92315883/213113765-5629b2b5-066c-47f7-95b0-fecab2a0c6df.png)
 
 Here is the output after the successful execution of the `ansible-playbook` command.
 
-![Screenshot (237)](https://user-images.githubusercontent.com/92315883/209025480-02bd71ae-7a55-44ff-bc12-b4fa571c0663.png)
+![Screenshot (323)](https://user-images.githubusercontent.com/92315883/213113832-14d67081-98dd-4acd-a679-34335346502b.png)
 
 
 ## Connect to Database using EC2 instance
@@ -273,8 +272,8 @@ mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of databas
 
 **NOTE:-** Replace `{public_ip of instance where Mysql deployed}`, `{user_name of database}` and `{password of database}` with suitable values. In our case `user_name`= `Local_user`, which we have created through the `.yml` file. 
 
-![Screenshot (297)](https://user-images.githubusercontent.com/92315883/212297155-e6983e10-ffb2-4a31-b2ec-ec626a2bda3b.png)
 
+![Screenshot (324)](https://user-images.githubusercontent.com/92315883/213113944-e366ef74-8242-491d-b7ec-c305dba8ef0f.png)
 
 ### Access Database and Table
 
