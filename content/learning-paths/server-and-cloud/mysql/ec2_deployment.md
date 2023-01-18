@@ -270,29 +270,42 @@ apt install mysql-client
 mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of database} -p {password of database}
 ```
 
-**NOTE:-** Replace `{public_ip of instance where Mysql deployed}`, `{user_name of database}` and `{password of database}` with suitable values. In our case `user_name`= `Local_user`, which we have created through the `.yml` file. 
+**NOTE:-** Replace `{public_ip of instance where Mysql deployed}`, `{user_name of database}` and `{password of database}` with your values. In our case `user_name`= `Local_user`, which we have created through the `.yml` file. 
 
 
 ![Screenshot (324)](https://user-images.githubusercontent.com/92315883/213113944-e366ef74-8242-491d-b7ec-c305dba8ef0f.png)
 
-### Access Database and Table
+### Access Database and Create Table
 
 We can access our database by using the below command.
 
 ```console
 show databases;
 ```
-![Screenshot (298)](https://user-images.githubusercontent.com/92315883/212295902-82b05825-a073-4d45-8273-6696dad7e9d8.png)
+```console
+use {{your_database}};
+```
+![Screenshot (328)](https://user-images.githubusercontent.com/92315883/213133358-c69840b7-3df3-4a4c-b882-c9b3a0bdde29.png)
+
+We are creating a table and inserting values in our database by using the below commands.
+
+```console
+create table book(name char(10),id varchar(10));
+```
+```console
+insert into book(name,id) values ('Abook','10'),('Bbook','20'),('Cbook','20'),('Dbook','30'),('Ebook','45'),('Fbook','40'),('Gbook
+','69');
+```
+```console
+describe book;
+```
+![Screenshot (326)](https://user-images.githubusercontent.com/92315883/213132819-9590b8aa-b2f9-46ca-a60c-4059edf2132c.png)
 
 Tables can be accessed by using the below command.
 
 ```console
-use {{your_database}};
-```
-```console
-show tables;
+select * from {{your_table_name}};
 ```
 
-![Screenshot (296)](https://user-images.githubusercontent.com/92315883/212296160-127d4b9e-47f2-4710-9498-9610e5a69c45.png)
-
+![Screenshot (327)](https://user-images.githubusercontent.com/92315883/213132389-db0c8949-eef8-4db8-bda7-7f55dc25193e.png)
 
