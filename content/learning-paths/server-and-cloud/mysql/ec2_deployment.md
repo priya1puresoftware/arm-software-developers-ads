@@ -128,7 +128,7 @@ resource "aws_key_pair" "deployer" {
         public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUZXm6T6JTQBuxw7aFaH6gmxDnjSOnHbrI59nf+YCHPqIHMlGaxWw0/xlaJiJynjOt67Zjeu1wNPifh2tzdN3UUD7eUFSGcLQaCFBDorDzfZpz4wLDguRuOngnXw+2Z3Iihy2rCH+5CIP2nCBZ+LuZuZ0oUd9rbGy6pb2gLmF89GYzs2RGG+bFaRR/3n3zR5ehgCYzJjFGzI8HrvyBlFFDgLqvI2KwcHwU2iHjjhAt54XzJ1oqevRGBiET/8RVsLNu+6UCHW6HE9r+T5yQZH50nYkSl/QKlxBj0tGHXAahhOBpk0ukwUlfbGcK6SVXmqtZaOuMNlNvssbocdg1KwOH ubuntu@ip-172-31-27-185"
  }
 ```
-**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with original values.
+**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with values.
 
 Now, use the below Terraform commands to deploy the `main.tf` file.
 
@@ -170,8 +170,7 @@ terraform apply
 ## Configure MySQL through Ansible
 Ansible is a software tool that provides simple but powerful automation for cross-platform computer support.
 Ansible allows you to configure not just one computer, but potentially a whole network of computers at once.
-Now to run Ansible, we have to create a `.yml` file, which is also known as `Ansible-Playbook`.
-Playbook contains a collection of tasks.
+To run Ansible, we have to create a `.yml` file, which is also known as `Ansible-Playbook`. Playbook contains a collection of tasks.
 
 ### Here is the complete YML file of Ansible-Playbook
 ```console
@@ -214,19 +213,6 @@ Playbook contains a collection of tasks.
         login_host: localhost
         state: present
         login_unix_socket: /run/mysqld/mysqld.sock
-    - name: Copy database dump file
-      copy:
-       src: /home/ubuntu/table.sql
-       dest: /tmp
-
-    - name: Create a table with dummy values in database
-      community.mysql.mysql_db:
-       name: arm_test
-       login_user: root
-       login_password: {{Your_mysql_password}}
-       login_host: localhost
-       state: import
-       target: /tmp/table.sql
     - name: MySQL secure installation
       become: yes
       expect:
@@ -255,7 +241,7 @@ Playbook contains a collection of tasks.
         name: mysql
         state: restarted
 ```
-**NOTE:-** We are using [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10433773/table_dot_sql.txt) script file to dump data, specify the `path` of the file accordingly. Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
+**NOTE:-** Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
 
 In our case, the inventory file will generate automatically. This file is formed after the `terraform apply` command. 
 
