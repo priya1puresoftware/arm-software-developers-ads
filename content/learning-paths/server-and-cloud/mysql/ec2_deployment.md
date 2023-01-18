@@ -17,12 +17,45 @@ layout: "learningpathall"
 * [AWS IAM authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
 * [Ansible](https://www.cyberciti.biz/faq/how-to-install-and-configure-latest-version-of-ansible-on-ubuntu-linux/)
 * [Terraform](https://github.com/zachlas/arm-software-developers-ads/blob/main/content/install-tools/terraform.md)
-## Deploy EC2 instance via Terraform
 
-To generate public key and private key through ```ssh-keygen```, use this [document](https://github.com/zachlas/arm-software-developers-ads/blob/main/content/learning-paths/server-and-cloud/aws/terraform.md).
+## Generate Access keys (access key ID and secret access key)
 
+The installation of Terraform on your desktop or laptop needs to communicate with AWS. Thus, Terraform needs to be able to authenticate with AWS. For authentication, generate access keys (access key ID and secret access key). These access keys are used by Terraform for making programmatic calls to AWS via the AWS CLI.
+  
+### Go to My Security Credentials
+   
+![image](https://user-images.githubusercontent.com/87687468/190137370-87b8ca2a-0b38-4732-80fc-3ea70c72e431.png)
+
+### On Your Security Credentials page click on create access keys (access key ID and secret access key)
+   
+![image](https://user-images.githubusercontent.com/87687468/190137925-c725359a-cdab-468f-8195-8cce9c1be0ae.png)
+   
+### Copy the Access Key ID and Secret Access Key 
+
+![image](https://user-images.githubusercontent.com/87687468/190138349-7cc0007c-def1-48b7-ad1e-4ee5b97f4b90.png)
+
+## Generate key-pair(public key, private key) using ssh keygen
+
+### Generate the public key and private key
+
+Before using Terraform, first generate the key-pair (public key, private key) using ssh-keygen. Then associate both public and private keys with AWS EC2 instances.
+
+Generate the key-pair using the following command:
+
+```console
+ssh-keygen -t rsa -b 2048
+```
+       
+By default, the above command will generate the public as well as private key at location **$HOME/.ssh**. You can override the end destination with a custom path.
+
+Output when a key pair is generated:
+      
 ![Screenshot (239)](https://user-images.githubusercontent.com/92315883/209257521-2b5e7019-1f4c-4701-a673-9d005b929893.png)
+      
+**Note:** Use the public key mysql_key.pub inside the Terraform file to provision/start the instance and private key mysql_key to connect to the instance.
 
+
+## Deploy EC2 instance via Terraform
 
 After generating the public and private keys, we have to create an EC2 instance. Then we will push our public key to the **authorized_keys** folder in `~/.ssh`. We will also create a security group that opens inbound ports `22`(ssh) and `3306`(MySQL). Below is a Terraform file called `main.tf` which will do this for us.
 
