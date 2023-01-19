@@ -116,7 +116,7 @@ terraform apply
    
 ### Verify the RDS setup
    
-Verify the setup on AWS console. Go to **RDS » Databases**, you should see the instance running.  
+To verify the setup on AWS console. Go to **RDS » Databases**, you should see the instance running.  
 
 ![Screenshot (257)](https://user-images.githubusercontent.com/92315883/209247626-2df854ca-a781-46b0-aeba-076a23b0c1fb.png)
 
