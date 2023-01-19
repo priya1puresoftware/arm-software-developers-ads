@@ -139,13 +139,5 @@ mysql -h {{Endpoint}} -u {{user}} -p {{password}}
 
 
 ### Create Database and Table
-Create `arm_test` database as shown below.
-
-![Screenshot (278)](https://user-images.githubusercontent.com/92315883/209741488-8e4cc2f6-e3d0-4730-8321-db2a21cc27c2.png)
-
-Create a table and insert values by using the script file [table.sql](https://github.com/Avinashpuresoftware/arm-software-developers-ads/files/10311465/table_dot_sql.txt).
-
-**NOTE:** Make sure the `table.sql` file should be present in the same directory where `main.tf` and `credential.tf` are.
-
-![Screenshot (279)](https://user-images.githubusercontent.com/92315883/209741539-9cc80fae-7fb1-4eae-b1c2-17235e48630d.png)
+To create a database and table, follow this [document](https://github.com/Avinashpuresoftware/arm-software-developers-ads/blob/local_testing/content/learning-paths/server-and-cloud/mysql/ec2_deployment.md#access-database-and-create-table)
 
