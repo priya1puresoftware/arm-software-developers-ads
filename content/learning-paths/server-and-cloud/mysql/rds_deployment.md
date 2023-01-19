@@ -140,5 +140,18 @@ mysql -h {{Endpoint}} -u {{user}} -p {{password}}
 
 
 ### Create Database and Table
-To create a database and table, follow this [document](https://github.com/Avinashpuresoftware/arm-software-developers-ads/blob/local_testing/content/learning-paths/server-and-cloud/mysql/ec2_deployment.md#access-database-and-create-table)
+Use the below command to create database
+
+```console
+create database {name_of_your_database};
+```
+```console
+show databases;
+```
+```console
+use {name_of_your_database};
+```
+![Screenshot (333)](https://user-images.githubusercontent.com/92315883/213410009-1149699d-a643-452d-b28b-cb69d95413e9.png)
+
+To create table, follow this [document](https://github.com/Avinashpuresoftware/arm-software-developers-ads/blob/local_testing/content/learning-paths/server-and-cloud/mysql/ec2_deployment.md#access-database-and-create-table)
 
