@@ -129,7 +129,7 @@ resource "aws_key_pair" "deployer" {
         public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUZXm6T6JTQBuxw7aFaH6gmxDnjSOnHbrI59nf+YCHPqIHMlGaxWw0/xlaJiJynjOt67Zjeu1wNPifh2tzdN3UUD7eUFSGcLQaCFBDorDzfZpz4wLDguRuOngnXw+2Z3Iihy2rCH+5CIP2nCBZ+LuZuZ0oUd9rbGy6pb2gLmF89GYzs2RGG+bFaRR/3n3zR5ehgCYzJjFGzI8HrvyBlFFDgLqvI2KwcHwU2iHjjhAt54XzJ1oqevRGBiET/8RVsLNu+6UCHW6HE9r+T5yQZH50nYkSl/QKlxBj0tGHXAahhOBpk0ukwUlfbGcK6SVXmqtZaOuMNlNvssbocdg1KwOH ubuntu@ip-172-31-27-185"
  }
 ```
-**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with values.
+**NOTE:-** Replace `public_key`, `access_key`, `secret_key`, and `key_name` with your values.
 
 Now, use the below Terraform commands to deploy the `main.tf` file.
 
@@ -240,16 +240,16 @@ To run Ansible, we have to create a `.yml` file, which is also known as `Ansible
         name: mysql
         state: restarted
 ```
-**NOTE:-** Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your own password.
+**NOTE:-** Replace `{{Your_mysql_password}}` and `{{Give_any_password}}` with your password.
 
-In our case, the inventory file will generate automatically. This file is formed after the `terraform apply` command. 
+In our case, the inventory file will generate automatically after the `terraform apply` command.
 
 ### Ansible Commands
 To run a Playbook, we need to use the `ansible-playbook` command.
 ```console
 ansible-playbook {your_yml_file} -i {your_inventory_file} --key-file {path_to_private_key}
 ```
-**NOTE:-** Replace `{your_yml_file}`, `{your_inventory_file}` and `{path_to_private_key}` with orignal values.
+**NOTE:-** Replace `{your_yml_file}`, `{your_inventory_file}` and `{path_to_private_key}` with your values.
 
 ![Screenshot (321)](https://user-images.githubusercontent.com/92315883/213113765-5629b2b5-066c-47f7-95b0-fecab2a0c6df.png)
 
@@ -267,7 +267,7 @@ apt install mysql-client
 ```
 
 ```console
-mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of database} -p {password of database}
+mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of database} -p{password of database}
 ```
 
 **NOTE:-** Replace `{public_ip of instance where Mysql deployed}`, `{user_name of database}` and `{password of database}` with your values. In our case `user_name`= `Local_user`, which we have created through the `.yml` file. 
@@ -277,17 +277,17 @@ mysql -h {public_ip of instance where Mysql deployed} -P3306 -u {user of databas
 
 ### Access Database and Create Table
 
-We can access our database by using the below command.
+We can access our database by using the below commands.
 
 ```console
 show databases;
 ```
 ```console
-use {{your_database}};
+use {your_database};
 ```
 ![Screenshot (328)](https://user-images.githubusercontent.com/92315883/213133358-c69840b7-3df3-4a4c-b882-c9b3a0bdde29.png)
 
-We are creating a table and inserting values in our database by using the below commands.
+Use the below commands to create a table and insert values into it.
 
 ```console
 create table book(name char(10),id varchar(10));
@@ -301,7 +301,7 @@ describe book;
 ```
 ![Screenshot (326)](https://user-images.githubusercontent.com/92315883/213132819-9590b8aa-b2f9-46ca-a60c-4059edf2132c.png)
 
-Tables can be accessed by using the below command.
+Use the below command to access the content of the table.
 
 ```console
 select * from {{your_table_name}};
