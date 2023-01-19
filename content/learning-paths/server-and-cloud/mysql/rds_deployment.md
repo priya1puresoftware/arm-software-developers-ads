@@ -16,7 +16,7 @@ layout: "learningpathall"
 
 ## Deploy MySQL RDS instances
 
-RDS is a Relational database service provided by AWS. More information can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html) To deploy a MySQL RDS instance, we need to create a `main.tf` Terraform file
+RDS is a Relational database service provided by AWS. More information can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html). To deploy a MySQL RDS instance, we need to create a `main.tf` Terraform file.
 
 ### Here is the complete main.tf file
     
@@ -78,7 +78,8 @@ variable "secret_key"{
 
 
 ```
-**NOTE:** Replace `secret_key` and `access_key` with the original AWS credentials.
+**NOTE:** Replace `secret_key` and `access_key` with the your AWS credentials.
+
 Now, use the below Terraform commands to deploy the `main.tf` file.
 
 ## Terraform commands
@@ -115,7 +116,7 @@ terraform apply
    
 ### Verify the RDS setup
    
-Verify the setup by going back to the AWS console. Go to **RDS » Databases**, you should see the instance running.  
+Verify the setup on AWS console. Go to **RDS » Databases**, you should see the instance running.  
 
 ![Screenshot (257)](https://user-images.githubusercontent.com/92315883/209247626-2df854ca-a781-46b0-aeba-076a23b0c1fb.png)
 
@@ -128,12 +129,12 @@ To connect to the RDS instance, we need the `Endpoint` of the RDS instance. To f
 ![Screenshot (280)](https://user-images.githubusercontent.com/92315883/209741254-55b40b52-1c56-482a-ab48-e33f510a1cf6.png)
 
 
-Now, we can connect to RDS using the above Endpoint. And we also have to use the `user` and `password` mentioned in the `credential.tf` file.
+Now, we can connect to RDS using the above Endpoint. Use the `user` and `password` mentioned in the `credential.tf` file.
 
 ```console
 mysql -h {{Endpoint}} -u {{user}} -p {{password}}
 ```
-**NOTE:** Replace `{{Endpoint}}`, `{{user}}` and `{{password}}`  with suitable values.
+**NOTE:** Replace `{{Endpoint}}`, `{{user}}` and `{{password}}` with your values.
 
 ![Screenshot (277)](https://user-images.githubusercontent.com/92315883/209741354-7872aac9-97cd-4554-ade8-80f8a4bbdf25.png)
 
