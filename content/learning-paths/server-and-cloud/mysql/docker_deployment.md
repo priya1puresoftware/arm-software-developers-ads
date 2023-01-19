@@ -91,12 +91,14 @@ terraform apply
 
 ## Check the deployment of MySQL container
 
-After applying the Terraform file with the `terraform apply` command, a MySQL container will be created. To verify the creation of a container.
+After applying the Terraform file with the `terraform apply` command, a MySQL container will be created. Follow below steps to verify the creation of a container.
 
 ### Check container deplyoment
-Use the `docker ps` command to check the creation of the container.
+Use the `docker ps` command to list out all running containers in Docker engine.
 
 ![Screenshot 2022-12-22 131700](https://user-images.githubusercontent.com/92315883/209083915-cf7100d1-d26a-4aad-8239-d3e75cd01c62.png)
+
+As we can see in above image, our container has been created with `Mysql:8` image.
 
 ### Access the docker container
 To connect to the MySQL container, we need to use the MySQL client to interact with the database.
