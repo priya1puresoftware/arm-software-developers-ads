@@ -65,7 +65,7 @@ variable "username"{
 }
 
 variable "password"{
-      default  = "Armtest"    #we_can_chosse_any_password, except special_characters.
+      default  = "Armtest"    #we_can_choose_any_password, except special_characters.
 }
 
 variable "access_key"{
@@ -140,7 +140,7 @@ mysql -h {{Endpoint}} -u {{user}} -p {{password}}
 
 
 ### Create Database and Table
-Use the below command to create database
+Use the below command to create a database.
 
 ```console
 create database {name_of_your_database};
@@ -153,5 +153,5 @@ use {name_of_your_database};
 ```
 ![Screenshot (333)](https://user-images.githubusercontent.com/92315883/213410009-1149699d-a643-452d-b28b-cb69d95413e9.png)
 
-To create table, follow this [document](https://github.com/Avinashpuresoftware/arm-software-developers-ads/blob/local_testing/content/learning-paths/server-and-cloud/mysql/ec2_deployment.md#access-database-and-create-table)
+To create and access a table, follow this [document](https://github.com/Avinashpuresoftware/arm-software-developers-ads/blob/local_testing/content/learning-paths/server-and-cloud/mysql/ec2_deployment.md#access-database-and-create-table).
 
