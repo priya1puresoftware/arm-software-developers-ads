@@ -260,7 +260,7 @@ Here is the output after the successful execution of the `ansible-playbook` comm
 
 ## Connect to Database using EC2 instance
 
-To connect to the database, we need the `public-ip` of the instance where MySQL is deployed. We also need to use MySQL Client to interact with the MySQL database.
+To connect to the database, we need the `public-ip` of the instance where MySQL is deployed. We also need to use the MySQL Client to interact with the MySQL database.
 
 ```console
 apt install mysql-client
